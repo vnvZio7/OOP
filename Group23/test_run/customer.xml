@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customers>
+    <customer>
+        <id>1</id>
+        <name>Trương Hương Giang</name>
+        <age>20</age>
+        <address>Ha Noi</address>
+        <phone>0812345678</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid 19 mũi 1</name>
+            <price>100.0</price>
+            <vaccinDate>2023-04-21T09:58:56.188+07:00</vaccinDate>
+            <injectAgain>2023-04-30T00:00:00+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>3</id>
+            <name>Covid 19 mũi 2</name>
+            <price>200.0</price>
+            <vaccinDate>2023-04-21T15:57:39.925+07:00</vaccinDate>
+            <injectAgain>2024-01-21T00:00:00+07:00</injectAgain>
+        </vaccines>
+    </customer>
+    <customer>
+        <id>3</id>
+        <name>Nguyễn Minh Phương</name>
+        <age>20</age>
+        <address>Hà Nội</address>
+        <phone>0123456789</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid 19</name>
+            <price>200.0</price>
+            <vaccinDate>2023-04-21T16:54:58.295+07:00</vaccinDate>
+            <injectAgain>2024-01-21T00:00:00+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>2</id>
+            <name>Cúm A</name>
+            <price>100.0</price>
+            <vaccinDate>2023-04-21T21:46:48.081+07:00</vaccinDate>
+            <injectAgain>2023-01-21T00:00:00+07:00</injectAgain>
+        </vaccines>
+    </customer>
+    <customer>
+        <id>4</id>
+        <name>Huy</name>
+        <age>20</age>
+        <address>Ha Noi</address>
+        <phone>0123456789</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid</name>
+            <price>100.0</price>
+            <vaccinDate>2024-01-23T10:25:49.491+07:00</vaccinDate>
+            <injectAgain>2024-01-23T00:00:00+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>2</id>
+            <name>Covid</name>
+            <price>100.0</price>
+            <vaccinDate>2024-01-23T10:26:04.802+07:00</vaccinDate>
+            <injectAgain>2024-01-27T00:00:00+07:00</injectAgain>
+        </vaccines>
+    </customer>
+    <customer>
+        <id>4</id>
+        <name>Phương</name>
+        <age>21</age>
+        <address>Ha Noi</address>
+        <phone>0123456789</phone>
+    </customer>
+</customers>

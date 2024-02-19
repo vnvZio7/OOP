@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customers>
+    <customer>
+        <id>1</id>
+        <name>Mai Thanh Toan</name>
+        <age>22</age>
+        <address>Ha Noi</address>
+        <phone>0123456789</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid 19 mũi 1</name>
+            <price>100.0</price>
+            <vaccinDate>2023-04-21T09:58:56.188+07:00</vaccinDate>
+            <injectAgain>2023-04-30T00:00:00+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>3</id>
+            <name>Dại</name>
+            <price>200.0</price>
+            <vaccinDate>2023-04-21T15:57:39.925+07:00</vaccinDate>
+            <injectAgain>2023-04-21T15:57:39.925+07:00</injectAgain>
+        </vaccines>
+    </customer>
+    <customer>
+        <id>2</id>
+        <name>Nguyễn Văn Nam</name>
+        <age>25</age>
+        <address>Hà Nội</address>
+        <phone>0912345678</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid 19 mũi 1</name>
+            <price>250.0</price>
+            <vaccinDate>2023-04-21T16:26:15.414+07:00</vaccinDate>
+            <injectAgain>2023-04-02T00:00:00+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>2</id>
+            <name>HIV</name>
+            <price>500.0</price>
+            <vaccinDate>2023-04-21T16:30:35.633+07:00</vaccinDate>
+            <injectAgain>2023-04-21T16:30:35.633+07:00</injectAgain>
+        </vaccines>
+    </customer>
+    <customer>
+        <id>3</id>
+        <name>Nguyễn Thị Lan</name>
+        <age>22</age>
+        <address>Hà Nội</address>
+        <phone>0123456789</phone>
+        <vaccines>
+            <id>1</id>
+            <name>Covid 19</name>
+            <price>200.0</price>
+            <vaccinDate>2023-04-21T16:54:58.295+07:00</vaccinDate>
+            <injectAgain>2023-04-21T16:54:58.295+07:00</injectAgain>
+        </vaccines>
+        <vaccines>
+            <id>2</id>
+            <name>Dại</name>
+            <price>100.0</price>
+            <vaccinDate>2023-04-21T21:46:48.081+07:00</vaccinDate>
+            <injectAgain>2023-04-21T21:46:48.081+07:00</injectAgain>
+        </vaccines>
+    </customer>
+</customers>
