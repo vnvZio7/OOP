@@ -3,9 +3,6 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -27,6 +24,7 @@ import entity.Customer;
 import func.CustomerFunc;
 
 public class CustomerView extends JFrame implements ActionListener, ListSelectionListener {
+
     private static final long serialVersionUID = 1L;
     private JButton addCustomerBtn;
     private JButton editCustomerBtn;
@@ -49,7 +47,7 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
     private JLabel searchLabel;
 
     private JTextField searchField;
-    
+
     private JTextField idField;
     private JTextField nameField;
     private JTextField ageField;
@@ -58,11 +56,12 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
 
     // định nghĩa các cột của bảng student
     private String[] columnCustomer = new String[]{
-            "ID", "Name", "Age", "Address", "Phone"};
+        "ID", "Name", "Age", "Address", "Phone"};
 
     // định nghĩa dữ liệu mặc định của bẳng student là rỗng
     private Object data = new Object[][]{};
     private int idCus = 0;
+
     public CustomerView() {
         initComponents();
     }
@@ -91,8 +90,6 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         phoneLabel = new JLabel("Phone");
         searchLabel = new JLabel("Search Name");
 
-
-
         // khởi tạo các trường nhập dữ liệu cho student
         idField = new JTextField(15);
         idField.setEditable(false);
@@ -105,7 +102,6 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         jScrollPaneAddress.setViewportView(addressTA);
         phoneField = new JTextField(15);
         searchField = new JTextField(15);
-
 
         // cài đặt các cột và data cho bảng student
         CustomerTable.setModel(new DefaultTableModel((Object[][]) data, columnCustomer));
@@ -139,7 +135,6 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
 
         panel.add(searchLabel);
 
-
         panel.add(idField);
         panel.add(nameField);
         panel.add(ageField);
@@ -160,14 +155,12 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         layout.putConstraint(SpringLayout.WEST, phoneLabel, 10, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, phoneLabel, 250, SpringLayout.NORTH, panel);
 
-
         layout.putConstraint(SpringLayout.WEST, searchLabel, 500, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, searchLabel, 30, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, searchField, 100, SpringLayout.WEST, searchLabel);
         layout.putConstraint(SpringLayout.NORTH, searchField, 25, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, searchBtn, 190, SpringLayout.WEST, searchField);
         layout.putConstraint(SpringLayout.NORTH, searchBtn, 25, SpringLayout.NORTH, panel);
-
 
         layout.putConstraint(SpringLayout.WEST, idField, 100, SpringLayout.WEST, panel);
         layout.putConstraint(SpringLayout.NORTH, idField, 60, SpringLayout.NORTH, panel);
@@ -192,14 +185,13 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         layout.putConstraint(SpringLayout.NORTH, clearBtn, 290, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, clearBtn, 80, SpringLayout.WEST, deleteCustomerBtn);
 
-
         layout.putConstraint(SpringLayout.NORTH, sortCustomerNameBtn, 290, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, sortCustomerNameBtn, 80, SpringLayout.WEST, clearBtn);
         layout.putConstraint(SpringLayout.NORTH, showVacBtn, 290, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, showVacBtn, 130, SpringLayout.WEST, sortCustomerNameBtn);
         layout.putConstraint(SpringLayout.NORTH, showAllBtn, 290, SpringLayout.NORTH, panel);
         layout.putConstraint(SpringLayout.WEST, showAllBtn, 130, SpringLayout.WEST, showVacBtn);
-        
+
         this.add(panel);
         this.pack();
         this.setTitle("Customer Information");
@@ -240,8 +232,8 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
     }
 
     /**
-     * điền thông tin của hàng được chọn từ bảng student
-     * vào các trường tương ứng của student.
+     * điền thông tin của hàng được chọn từ bảng student vào các trường tương
+     * ứng của student.
      */
     public void fillCustomerFromSelectedRow() {
         CustomerFunc customerFunc = new CustomerFunc();
@@ -260,21 +252,17 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
             // disable Add button
             addCustomerBtn.setEnabled(false);
             idCus = Integer.parseInt(CustomerTable.getModel().getValueAt(row, 0).toString());
-//            List<Vaccine> vaccines = customerFunc.findById(id).getVaccines();
-//            showListVaccine(vaccines);
-//            clearVaccineInfo();
         }
     }
 
-
-
-    public int getidCus(){
+    public int getidCus() {
         return idCus;
     }
+
     /**
      * xóa thông tin student
      */
-    
+
     public void clearStudentInfo() {
         idField.setText("");
         nameField.setText("");
@@ -286,7 +274,9 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         deleteCustomerBtn.setEnabled(false);
         // enable Add button
         addCustomerBtn.setEnabled(true);
+        showVacBtn.setEnabled(false);
     }
+
     /**
      * hiện thị thông tin student
      *
@@ -338,7 +328,6 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
         }
         return null;
     }
-
 
     public int getIdCustomer() {
         String id = idField.getText();
@@ -428,16 +417,12 @@ public class CustomerView extends JFrame implements ActionListener, ListSelectio
     }
 
     public void showVacBtnListener(ActionListener listener) {
-    //        deleteVacBtn.addActionListener(listener);
         showVacBtn.addActionListener(listener);
     }
+
     public void addClearListener(ActionListener listener) {
         clearBtn.addActionListener(listener);
     }
-
-//    public void addSortStudentGPAListener(ActionListener listener) {
-//        sortStudentGPABtn.addActionListener(listener);
-//    }
 
     public void addSortStudentNameListener(ActionListener listener) {
         sortCustomerNameBtn.addActionListener(listener);

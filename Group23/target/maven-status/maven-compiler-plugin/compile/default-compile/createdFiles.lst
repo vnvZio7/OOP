@@ -28,7 +28,6 @@ controller\LoginController.class
 controller\StudentController$ListStudentSelectionListener.class
 controller\StudentController$showAllCustomerListener.class
 App$1.class
-view\demo.class
 func\CustomerFunc.class
 func\CustomerFunc$1.class
 entity\User.class

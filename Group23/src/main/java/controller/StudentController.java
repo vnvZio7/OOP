@@ -10,6 +10,8 @@ import javax.swing.event.ListSelectionListener;
 import entity.Customer;
 import entity.Vaccine;
 import func.CustomerFunc;
+import java.util.Calendar;
+import java.util.Date;
 import view.CustomerView;
 import view.VaccineView;
 
@@ -87,7 +89,6 @@ public class StudentController {
     }
     class closeBtnListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.out.print("Ok");
             customerView.setVisible(true);
             vaccineView.setVisible(false);
         }
@@ -99,10 +100,7 @@ public class StudentController {
             customerView.setVisible(false);
             CustomerFunc customerFunc = new CustomerFunc();
         // lấy chỉ số của hàng được chọn 
-//            customerView.showListCustomers(studentDao.getListStudents());
-//            int id = Integer.parseInt(CustomerTable.getModel().getValueAt(row, 0).toString());
             int id = customerView.getidCus();
-            System.out.println(id);
 
             List<Vaccine> vaccines = customerFunc.findById(id).getVaccines();
             vaccineView.showListVaccine(vaccines);
@@ -112,13 +110,15 @@ public class StudentController {
         public void actionPerformed(ActionEvent e) {
             Vaccine vaccine = vaccineView.getVaccineInfo();
             int idCustomer = customerView.getIdCustomer();
-            if (vaccine != null && idCustomer != -1) {
+            Date date=java.util.Calendar.getInstance().getTime();
+            if (vaccine != null && idCustomer != -1 && vaccine.getInjectAgain().compareTo(date) >= 0 ) {
                 studentDao.addVaccine(idCustomer, vaccine);
-//                customerView.showStudent(customer);
+                System.out.print(vaccine.getInjectAgain().compareTo(date));
                 vaccineView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
+
                 vaccineView.showMessage("Thêm Vaccine thành công!");
             } else {
-                vaccineView.showMessage("Không thể thêm vì chưa biết thêm cho customer nào!");
+                vaccineView.showMessage("Không thể thêm vì ngày tiêm lại trước ngày hiện tại");
 
             }
         }
@@ -145,13 +145,15 @@ public class StudentController {
     class EditVaccineListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             Vaccine vaccine = vaccineView.getVaccineInfo();
+            Date date=java.util.Calendar.getInstance().getTime();
+
             int idCustomer = customerView.getIdCustomer();
-            if (vaccine != null && idCustomer != -1) {
+            if (vaccine != null && idCustomer != -1 && vaccine.getInjectAgain().compareTo(date) >= 0) {
                 studentDao.editVaccine(idCustomer, vaccine);
                 vaccineView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
                 vaccineView.showMessage("Cập nhật thành công!");
             } else {
-                if (idCustomer == -1) vaccineView.showMessage("Không thể sửa vì chưa biết sửa cho customer nào!");
+                vaccineView.showMessage("Không thể sửa vì ngày tiêm lại trước ngày hiện tại!");
             }
         }
     }

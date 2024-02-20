@@ -6,7 +6,6 @@ import controller.LoginController;
 import view.LoginView;
 import view.RegisterView;   
 import view.VaccineView;
-import view.demo;
 
 public class App {
     public static void main(String[] args) {

@@ -32,28 +32,14 @@
             <name>Covid 19 mũi 1</name>
             <price>250.0</price>
             <vaccinDate>2023-04-21T16:26:15.414+07:00</vaccinDate>
-            <injectAgain>2023-04-21T00:00:00+07:00</injectAgain>
+            <injectAgain>2023-04-02T00:00:00+07:00</injectAgain>
         </vaccines>
         <vaccines>
             <id>2</id>
-            <name>Viêm gan B</name>
+            <name>HIV</name>
             <price>500.0</price>
             <vaccinDate>2023-04-21T16:30:35.633+07:00</vaccinDate>
-            <injectAgain>2023-04-21T00:00:00+07:00</injectAgain>
-        </vaccines>
-        <vaccines>
-            <id>3</id>
-            <name>Ha Noi</name>
-            <price>111.0</price>
-            <vaccinDate>2024-02-20T17:26:52.282+07:00</vaccinDate>
-            <injectAgain>1110-12-28T00:00:00+07:00</injectAgain>
-        </vaccines>
-        <vaccines>
-            <id>4</id>
-            <name>Da Nang</name>
-            <price>111.0</price>
-            <vaccinDate>2024-02-20T17:27:13.146+07:00</vaccinDate>
-            <injectAgain>1110-12-28T00:00:00+07:00</injectAgain>
+            <injectAgain>2023-04-21T16:30:35.633+07:00</injectAgain>
         </vaccines>
     </customer>
     <customer>
