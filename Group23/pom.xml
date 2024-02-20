@@ -60,7 +60,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>App</mainClass>
+                            <mainClass>exp.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
