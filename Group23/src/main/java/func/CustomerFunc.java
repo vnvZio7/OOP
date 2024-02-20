@@ -68,7 +68,6 @@ public class CustomerFunc {
         for(Integer it : listID){
               tmp++;
           if(it != tmp  )  {
-              System.out.println(it);
               id = tmp ;
               break;
           }
@@ -81,6 +80,19 @@ public class CustomerFunc {
     public void addVaccine(int idCustomer, Vaccine vaccine) {
         Customer customer = findById(idCustomer);
         int id = (customer.getVaccines().size() > 0) ? (customer.getVaccines().size() + 1) : 1;
+        int tmp = 0;
+        Set<Integer> listID = new HashSet<>();
+        for(Vaccine it : customer.getVaccines()  )
+        {
+          listID.add(it.getId());
+        }
+        for(Integer it : listID){
+              tmp++;
+          if(it != tmp  )  {
+              id = tmp ;
+              break;
+          }
+        }
         vaccine.setId(id);
         customer.getVaccines().add(vaccine);
         writeListCustomers(listCustomers);

@@ -26,6 +26,8 @@ import javax.swing.table.DefaultTableModel;
 import entity.Customer;
 import entity.Vaccine;
 import func.CustomerFunc;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 
 public class VaccineView extends JFrame implements ActionListener, ListSelectionListener {
     private static final long serialVersionUID = 1L;
@@ -61,7 +63,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
     private JLabel titleCustomerLabel;
 
     private JTextField idVacField;
-    private JTextField nameVacField;
+//    private JTextField nameVacField;
     private JTextField priceVacField;
     private JTextField injectAgainField;
 //    private JTextField searchField;
@@ -78,9 +80,12 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
     private String[] columnVaccine = new String[]{
             "ID", "Name", "Price", "Ngày Tiêm", "Ngày Tiêm Lại"};
 //     định nghĩa dữ liệu mặc định của bẳng student là rỗng
-//    private Object data = new Object[][]{};
-    private Object data2 = new Object[][]{};
 
+    String city[] = { "Lao","Phổi","Viêm tai giữa","Viêm gan B","Uốn ván","Tiêu chảy", "Covid 19 mũi 1", "Covid 19 mũi 2", "Covid 19 mũi 3", "Covid 19 mũi 4" };
+
+    JComboBox nameVacField = new JComboBox(city);
+    private Object data2 = new Object[][]{};
+    
     public VaccineView() {
         initComponents();
     }
@@ -124,7 +129,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
         titleCustomerLabel = new JLabel("Vaccine Đã Tiêm");
         Font font = new Font("Arial", Font.BOLD, 24);
         titleCustomerLabel.setFont(font);
-
+        nameVacField.setSelectedIndex(0);
         // khởi tạo các trường nhập dữ liệu cho student
 //        idField = new JTextField(15);
 //        idField.setEditable(false);
@@ -140,7 +145,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
 
         idVacField = new JTextField(15);
         idVacField.setEditable(false);
-        nameVacField = new JTextField(15);
+//        nameVacField = new JComboBox();
         priceVacField = new JTextField(15);
         injectAgainField = new JTextField(15);
 
@@ -160,7 +165,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
         panel.setLayout(layout);
 //        panel.add(jScrollPaneCustomerTable);
         panel.add(jScrollPaneVaccineTable);
-
+//        panel.add(cb);
 //        panel.add(addCustomerBtn);
 //        panel.add(editCustomerBtn);
 //        panel.add(deleteCustomerBtn);
@@ -358,7 +363,14 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
         int row = VaccineTable.getSelectedRow();
         if (row >= 0) {
             idVacField.setText(VaccineTable.getModel().getValueAt(row, 0).toString());
-            nameVacField.setText(VaccineTable.getModel().getValueAt(row, 1).toString());
+            int tmp = 0;
+            for(int i = 0 ; i < city.length ; i++){
+                if(city[i].equals(VaccineTable.getModel().getValueAt(row, 1).toString())){
+                    tmp = i;
+                    break;
+                }
+            }
+            nameVacField.setSelectedIndex(tmp);
             priceVacField.setText(VaccineTable.getModel().getValueAt(row, 2).toString());
             injectAgainField.setText(VaccineTable.getModel().getValueAt(row, 3).toString());
             editVacBtn.setEnabled(true);
@@ -401,7 +413,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
 
     public void clearVaccineInfo() {
         idVacField.setText("");
-        nameVacField.setText("");
+        nameVacField.setSelectedIndex(-1);
         priceVacField.setText("");
         injectAgainField.setText("");
         // disable Edit and Delete buttons
@@ -469,7 +481,7 @@ public class VaccineView extends JFrame implements ActionListener, ListSelection
             if (idVacField.getText() != null && !"".equals(idVacField.getText())) {
                 vaccine.setId(Integer.parseInt(idVacField.getText()));
             }
-            vaccine.setName(nameVacField.getText().trim());
+            vaccine.setName((String) nameVacField.getItemAt(nameVacField.getSelectedIndex()));
             vaccine.setPrice(Double.parseDouble(priceVacField.getText().trim()));
 
             String inputDate = injectAgainField.getText();

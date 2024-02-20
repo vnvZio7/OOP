@@ -28,13 +28,13 @@ public class StudentController {
         view.searchCustomerListener(new searchCustomerListener());
         view.showAllCustomerListener(new showAllCustomerListener());
         view.showVacBtnListener(new showVacBtnListener());
-//        view1.addAddVaccineListener(new AddVaccineListener());
+        view1.addAddVaccineListener(new AddVaccineListener());
 
         view.addEdiStudentListener(new EditStudentListener());
-//        view1.addEdiVaccineListener(new EditVaccineListener());
+        view1.addEdiVaccineListener(new EditVaccineListener());
 
         view.addDeleteStudentListener(new DeleteStudentListener());
-//        view1.addDeleteVaccineListener(new DeleteVaccineListener());
+        view1.addDeleteVaccineListener(new DeleteVaccineListener());
         view1.closeBtnListener(new closeBtnListener());
         view.addClearListener(new ClearStudentListener());
         view1.addClearVaccineListener(new ClearVaccineListener());
@@ -108,21 +108,21 @@ public class StudentController {
             vaccineView.showListVaccine(vaccines);
         }
     }
-//    class AddVaccineListener implements ActionListener {
-//        public void actionPerformed(ActionEvent e) {
-//            Vaccine vaccine = customerView.getVaccineInfo();
-//            int idCustomer = customerView.getIdCustomer();
-//            if (vaccine != null && idCustomer != -1) {
-//                studentDao.addVaccine(idCustomer, vaccine);
-////                customerView.showStudent(customer);
-//                customerView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
-//                customerView.showMessage("Thêm Vaccine thành công!");
-//            } else {
-//                customerView.showMessage("Không thể thêm vì chưa biết thêm cho customer nào!");
-//
-//            }
-//        }
-//    }
+    class AddVaccineListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            Vaccine vaccine = vaccineView.getVaccineInfo();
+            int idCustomer = customerView.getIdCustomer();
+            if (vaccine != null && idCustomer != -1) {
+                studentDao.addVaccine(idCustomer, vaccine);
+//                customerView.showStudent(customer);
+                vaccineView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
+                vaccineView.showMessage("Thêm Vaccine thành công!");
+            } else {
+                vaccineView.showMessage("Không thể thêm vì chưa biết thêm cho customer nào!");
+
+            }
+        }
+    }
 
     /**
      * Lớp EditStudentListener
@@ -142,19 +142,19 @@ public class StudentController {
         }
     }
 
-//    class EditVaccineListener implements ActionListener {
-//        public void actionPerformed(ActionEvent e) {
-//            Vaccine vaccine = customerView.getVaccineInfo();
-//            int idCustomer = customerView.getIdCustomer();
-//            if (vaccine != null && idCustomer != -1) {
-//                studentDao.editVaccine(idCustomer, vaccine);
-//                customerView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
-//                customerView.showMessage("Cập nhật thành công!");
-//            } else {
-//                if (idCustomer == -1) customerView.showMessage("Không thể sửa vì chưa biết sửa cho customer nào!");
-//            }
-//        }
-//    }
+    class EditVaccineListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            Vaccine vaccine = vaccineView.getVaccineInfo();
+            int idCustomer = customerView.getIdCustomer();
+            if (vaccine != null && idCustomer != -1) {
+                studentDao.editVaccine(idCustomer, vaccine);
+                vaccineView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
+                vaccineView.showMessage("Cập nhật thành công!");
+            } else {
+                if (idCustomer == -1) vaccineView.showMessage("Không thể sửa vì chưa biết sửa cho customer nào!");
+            }
+        }
+    }
 
     /**
      * Lớp DeleteStudentListener
@@ -174,20 +174,20 @@ public class StudentController {
         }
     }
 
-//    class DeleteVaccineListener implements ActionListener {
-//        public void actionPerformed(ActionEvent e) {
-//            Vaccine vaccine = customerView.getVaccineInfo();
-//            int idCustomer = customerView.getIdCustomer();
-//            if (vaccine != null && idCustomer != -1) {
-//                studentDao.deleteVaccine(idCustomer, vaccine);
-//                customerView.clearVaccineInfo();
-//                customerView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
-//                customerView.showMessage("Xóa thành công!");
-//            } else {
-//                customerView.showMessage("Không thể xóa vì chưa biết xóa cho customer nào!");
-//            }
-//        }
-//    }
+    class DeleteVaccineListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            Vaccine vaccine = vaccineView.getVaccineInfo();
+            int idCustomer = customerView.getIdCustomer();
+            if (vaccine != null && idCustomer != -1) {
+                studentDao.deleteVaccine(idCustomer, vaccine);
+                vaccineView.clearVaccineInfo();
+                vaccineView.showListVaccine(studentDao.findById(idCustomer).getVaccines());
+                vaccineView.showMessage("Xóa thành công!");
+            } else {
+                vaccineView.showMessage("Không thể xóa vì chưa biết xóa cho customer nào!");
+            }
+        }
+    }
 
     /**
      * Lớp ClearStudentListener
@@ -203,7 +203,7 @@ public class StudentController {
 
     class ClearVaccineListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-//            customerView.clearVaccineInfo();
+            vaccineView.clearVaccineInfo();
         }
     }
 
@@ -247,7 +247,7 @@ public class StudentController {
 
     class ListVaccineSelectionListener implements ListSelectionListener {
         public void valueChanged(ListSelectionEvent e) {
-//            customerView.fillVaccineFromSelectedRow();
+            vaccineView.fillVaccineFromSelectedRow();
         }
     }
 }

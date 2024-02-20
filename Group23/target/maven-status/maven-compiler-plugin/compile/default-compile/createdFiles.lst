@@ -9,13 +9,16 @@ entity\Customer.class
 controller\StudentController$EditStudentListener.class
 controller\StudentController.class
 view\LoginView.class
+controller\StudentController$DeleteVaccineListener.class
 func\UserFunc.class
 view\RegisterView.class
 view\VaccineView.class
 entity\dsadv.class
+controller\StudentController$AddVaccineListener.class
 controller\StudentController$AddStudentListener.class
 controller\StudentController$ClearStudentListener.class
 controller\StudentController$DeleteStudentListener.class
+controller\StudentController$EditVaccineListener.class
 controller\LoginController$LoginListener.class
 controller\StudentController$ListVaccineSelectionListener.class
 controller\RegisterController.class
